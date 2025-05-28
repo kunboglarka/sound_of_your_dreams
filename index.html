@@ -1,44 +1,86 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saját Portfólió</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sounds of Your Dreams</title>
   <style>
+    /* Alapstílus */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Helvetica Neue', sans-serif;
-      background: #f9f9f9;
-      color: #111;
-      padding: 60px;
-      margin: 0;
-      line-height: 1.6;
+      background: linear-gradient(135deg, #0a192f, #0f3d3e); /* sötétkék-zöld gradient */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      transition: background 0.6s ease-in-out, color 0.6s ease-in-out;
     }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5em;
+      font-size: 3.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease-out;
     }
-    p {
-      max-width: 600px;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
-      border: 1px solid #111;
-      text-decoration: none;
-      color: #111;
-      margin-top: 30px;
+
+    /* Később szekciók váltására smooth animációhoz is működik */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.8s ease;
+      opacity: 0;
     }
-    img {
-      max-width: 100%;
-      margin-top: 40px;
-      border-radius: 12px;
+
+    section.visible {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <h1>Helló, én vagyok XY</h1>
-  <p>Hangtechnikus és kreatív szakember vagyok. Ez az első saját weboldalam.</p>
-  <a href="mailto:te@email.hu" class="button">Kapcsolatfelvétel</a>
-  <img src="https://via.placeholder.com/800x400" alt="Munkáim előnézete">
+  <section class="visible">
+    <h1>Sounds of Your Dreams</h1>
+  </section>
+
+  <script>
+    // Automatikus fade-in, ha később több szekció lenne
+    const sections = document.querySelectorAll("section");
+    const options = { threshold: 0.2 };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
