@@ -16,129 +16,80 @@
     }
 
     body {
-      background: linear-gradient(135deg, #01020a, #0a0c18, #121522);
+      background: linear-gradient(135deg, #03040a, #121c2c, #1a2840); /* sötétkék majdnem fekete */
       color: white;
       font-family: 'Orbitron', sans-serif;
       min-height: 100vh;
+      cursor: none; /* Eltünteti az alap egérkurzort */
     }
 
-    /* Áttetsző menüsor háttér (most nincs menüsor, hanem csak lenyíló) */
-    nav {
+    /* Egyedi kurzor pötty */
+    .cursor-dot {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      background-color: rgba(15, 32, 39, 0.3); /* áttetsző */
-      z-index: 10;
+      width: 14px;
+      height: 14px;
+      background-color: white;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
     }
 
-    /* SOYD hamburger gomb a bal felső sarokban */
+    /* Kattintás animáció a kurzor pöttyön */
+    .cursor-dot.active {
+      transform: translate(-50%, -50%) scale(0.7);
+      background-color: #B7410E; /* téglavörös */
+    }
+
+    /* Áttetsző menüsor háttér */
+    nav {
+      font-family: 'Pacifico', cursive;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(15, 32, 39, 0.3);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      cursor: none; /* menü gombokon se látszódjon az alap kurzor */
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+      cursor: none; /* menüpontokon se látszódjon az alap kurzor */
+    }
+
+    nav a:hover {
+      color: #FFA07A;
+    }
+
     #soyd-logo {
       position: fixed;
       top: 10px;
       left: 10px;
       font-family: 'Monoton', cursive;
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: white;
-      cursor: pointer;
-      z-index: 30;
+      text-shadow:
+        0 0 10px white,
+        0 0 20px white,
+        0 0 30px white;
+      z-index: 20;
+      cursor: pointer; /* ez legyen kattintható, pointer jel */
       user-select: none;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
     }
 
-    /* Hamburger ikon vonalak */
-    .hamburger {
-      width: 28px;
-      height: 20px;
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      background: white;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger span:nth-child(1) {
-      top: 0;
-    }
-
-    .hamburger span:nth-child(2) {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .hamburger span:nth-child(3) {
-      bottom: 0;
-    }
-
-    /* Hamburger aktív állapot - X alak */
-    #soyd-logo.active .hamburger span:nth-child(1) {
-      transform: rotate(45deg);
-      top: 50%;
-    }
-
-    #soyd-logo.active .hamburger span:nth-child(2) {
-      opacity: 0;
-    }
-
-    #soyd-logo.active .hamburger span:nth-child(3) {
-      transform: rotate(-45deg);
-      bottom: 50%;
-    }
-
-    /* Lenülő menü stílus */
-    .dropdown-menu {
-      position: fixed;
-      top: 50px; /* közvetlenül a soyd-logo alatt */
-      left: 10px;
-      background: rgba(15, 32, 39, 0.95);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-      max-height: 0;
-      width: 180px;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-      z-index: 25;
-      font-family: 'Pacifico', cursive;
-    }
-
-    /* Megnyitott menü */
-    .dropdown-menu.open {
-      max-height: 500px; /* elég nagy hogy az összes menüpont férjen */
-      opacity: 1;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 1rem 1.5rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .dropdown-menu a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-menu a:hover,
-    .dropdown-menu a.active {
-      background-color: #B7410E;
-      color: white;
-    }
-
-    /* A hero rész */
     section {
       min-height: 100vh;
       display: flex;
@@ -169,7 +120,19 @@
       }
     }
 
-    /* Kapcsolat szekció az eredeti stílusod */
+    h2 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      color: white;
+      font-weight: 500;
+    }
+
     #contact {
       background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
       background-position: center;
@@ -215,23 +178,13 @@
     .contact-links a:hover {
       color: #FFA07A;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- SOYD felirat hamburgerrel -->
-  <div id="soyd-logo">
-    SOYD
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
+  <div id="soyd-logo">SOYD</div>
 
-  <!-- Lenülő menü -->
-  <nav class="dropdown-menu" id="dropdown-menu">
+  <nav>
     <a href="#hero">Kezdőlap</a>
     <a href="#about">Rólam</a>
     <a href="#music">Zeneim</a>
@@ -264,70 +217,25 @@
     </div>
   </section>
 
-  <script>
-    const soydLogo = document.getElementById('soyd-logo');
-    const dropdownMenu = document.getElementById('dropdown-menu');
+  <!-- Egyedi kurzor pötty -->
+  <div class="cursor-dot"></div>
 
-    soydLogo.addEventListener('click', () => {
-      soydLogo.classList.toggle('active');
-      dropdownMenu.classList.toggle('open');
+  <script>
+    const cursorDot = document.querySelector('.cursor-dot');
+
+    window.addEventListener('mousemove', e => {
+      cursorDot.style.top = e.clientY + 'px';
+      cursorDot.style.left = e.clientX + 'px';
     });
 
-    // Görgetés figyelése menüpont kiemeléséhez
-    const sections = document.querySelectorAll("section");
-    const navLinks = dropdownMenu.querySelectorAll("a");
+    window.addEventListener('mousedown', () => {
+      cursorDot.classList.add('active');
+    });
 
-    window.addEventListener("scroll", () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
+    window.addEventListener('mouseup', () => {
+      cursorDot.classList.remove('active');
     });
   </script>
-<!-- A body végére vagy a <body> zárótag elé -->
-<div id="cursor"></div>
 
-<style>
-  /* Elrejtjük a normál kurzort */
-  body {
-    cursor: none;
-  }
-
-  #cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    background-color: #B7410E; /* téglavörös */
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px 3px rgba(183, 65, 14, 0.6);
-    transition: top 0.1s ease-out, left 0.1s ease-out;
-    z-index: 10000;
-  }
-</style>
-
-<script>
-  const cursor = document.getElementById('cursor');
-
-  window.addEventListener('mousemove', e => {
-    cursor.style.top = e.clientY + 'px';
-    cursor.style.left = e.clientX + 'px';
-  });
-</script>
 </body>
 </html>
