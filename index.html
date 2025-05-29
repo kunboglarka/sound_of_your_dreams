@@ -5,26 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sounds of Your Dreams</title>
 
+  <!-- Google Fonts betűtípusok -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet" />
+
   <style>
-    /* Betűtípusok több formátumban, saját fájlokból */
-    @font-face {
-      font-family: 'Dandelion';
-      src: url('fonts/DandelionsBloom.woff2') format('woff2'),
-           url('fonts/DandelionsBloom.woff') format('woff'),
-           url('fonts/DandelionsBloom.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'GlowBloom';
-      src: url('fonts/GlowBloom.woff2') format('woff2'),
-           url('fonts/GlowBloom.woff') format('woff'),
-           url('fonts/GlowBloom.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -33,13 +17,13 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
     }
 
     nav {
-      font-family: 'GlowBloom', sans-serif;
+      font-family: 'Satisfy', cursive;
       position: fixed;
       top: 0;
       width: 100%;
@@ -53,10 +37,12 @@
     }
 
     nav a {
+      font-family: 'Montserrat', sans-serif;
       color: white;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
+      font-size: 1.1rem;
     }
 
     nav a:hover {
@@ -69,15 +55,17 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
+      flex-direction: column;
+      text-align: center;
     }
 
     #hero h1 {
-      font-family: 'Dandelion', cursive;
+      font-family: 'Pacifico', cursive;
       font-size: 3em;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 2s ease-out forwards;
-      text-align: center;
+      margin-bottom: 1rem;
     }
 
     @keyframes fadeInUp {
@@ -85,11 +73,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    #about, #music, #contact {
-      flex-direction: column;
-      text-align: center;
     }
 
     h2 {
@@ -102,6 +85,7 @@
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* Kapcsolat szekció (marad alap betűtípus) */
@@ -115,7 +99,7 @@
       overflow: hidden;
       min-height: 100vh;
       color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     #contact::before {
@@ -138,6 +122,7 @@
       font-size: 3rem;
       margin-bottom: 1rem;
       color: #f1c40f;
+      font-family: 'Pacifico', cursive;
     }
 
     .contact-links a {
@@ -146,6 +131,7 @@
       font-size: 1.4rem;
       text-decoration: none;
       transition: color 0.3s;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .contact-links a:hover {
@@ -167,17 +153,13 @@
   </section>
 
   <section id="about">
-    <div>
-      <h2>Rólam</h2>
-      <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
-    </div>
+    <h2>Rólam</h2>
+    <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
   </section>
 
   <section id="music">
-    <div>
-      <h2>Zeneim</h2>
-      <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
-    </div>
+    <h2>Zeneim</h2>
+    <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
   </section>
 
   <section id="contact">
@@ -186,8 +168,8 @@
       <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
       <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
       <div class="contact-links">
-        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank">Instagram</a>
-        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank">SoundCloud</a>
+        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
       </div>
     </div>
   </section>
