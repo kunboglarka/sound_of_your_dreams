@@ -22,73 +22,104 @@
       min-height: 100vh;
     }
 
+    /* Áttetsző menüsor háttér (most nincs menüsor, hanem csak lenyíló) */
     nav {
-      font-family: 'Pacifico', cursive;
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      background-color: rgba(15, 32, 39, 0.3);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
+      background-color: rgba(15, 32, 39, 0.3); /* áttetsző */
       z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #FFA07A;
-    }
-
+    /* SOYD hamburger gomb a bal felső sarokban */
     #soyd-logo {
       position: fixed;
       top: 10px;
       left: 10px;
       font-family: 'Monoton', cursive;
-      font-size: 2.5rem;
-      color: white;  /* Fehér szín */
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.7),
-        0 0 15px rgba(255,255,255,0.5);
-      z-index: 20;
+      font-size: 2.2rem;
+      color: white;
       cursor: pointer;
+      z-index: 30;
       user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    /* Legördülő menü stílusa */
-    #dropdown-menu {
+    /* Hamburger ikon vonalak */
+    .hamburger {
+      width: 28px;
+      height: 20px;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: white;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hamburger span:nth-child(3) {
+      bottom: 0;
+    }
+
+    /* Hamburger aktív állapot - X alak */
+    #soyd-logo.active .hamburger span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 50%;
+    }
+
+    #soyd-logo.active .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    #soyd-logo.active .hamburger span:nth-child(3) {
+      transform: rotate(-45deg);
+      bottom: 50%;
+    }
+
+    /* Lenülő menü stílus */
+    .dropdown-menu {
       position: fixed;
-      top: 55px; /* a SOYD gomb alá */
+      top: 50px; /* közvetlenül a soyd-logo alatt */
       left: 10px;
-      background-color: rgba(15, 32, 39, 0.9);
-      border-radius: 6px;
+      background: rgba(15, 32, 39, 0.95);
+      border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
       max-height: 0;
-      width: 180px;  /* nagyobb szélesség */
+      width: 180px;
       transition: max-height 0.4s ease, opacity 0.4s ease;
       opacity: 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      z-index: 19;
+      z-index: 25;
+      font-family: 'Pacifico', cursive;
     }
 
-    #dropdown-menu.open {
-      max-height: 500px; /* elegendő magasság */
+    /* Megnyitott menü */
+    .dropdown-menu.open {
+      max-height: 500px; /* elég nagy hogy az összes menüpont férjen */
       opacity: 1;
     }
 
-    #dropdown-menu a {
+    .dropdown-menu a {
       display: block;
-      padding: 12px 18px;
-      font-family: 'Pacifico', cursive;
+      padding: 1rem 1.5rem;
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -97,12 +128,17 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    #dropdown-menu a:hover,
-    #dropdown-menu a.active {
-      background-color: #FFA07A;
-      color: #1a1a1a;
+    .dropdown-menu a:last-child {
+      border-bottom: none;
     }
 
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+      background-color: #FF3CAC;
+      color: white;
+    }
+
+    /* A hero rész */
     section {
       min-height: 100vh;
       display: flex;
@@ -114,22 +150,17 @@
     }
 
     #hero h1 {
-  font-family: 'Monoton', cursive;
-  font-size: 4rem;
-  color: #FF6EC7; /* egy erősebb pink/lila neon szín */
-  text-shadow:
-    0 0 10px #FF6EC7,
-    0 0 20px #FF6EC7,
-    0 0 30px #FF6EC7,
-    0 0 40px #FF6EC7;
-  background: rgba(0, 0, 0, 0.4); /* halvány sötét háttércsík */
-  padding: 0 1rem;
-  border-radius: 8px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 2s ease-out forwards;
-  text-align: center;
-}
+      font-family: 'Monoton', cursive;
+      font-size: 4rem;
+      color: #B7410E;
+      text-shadow:
+        0 0 8px #B7410E,
+        0 0 15px #B7410E;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 2s ease-out forwards;
+      text-align: center;
+    }
 
     @keyframes fadeInUp {
       to {
@@ -137,80 +168,26 @@
         transform: translateY(0);
       }
     }
-
-    h2 {
-      font-size: 2.5rem;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      max-width: 600px;
-      line-height: 1.6;
-      color: white;
-      font-weight: 500;
-    }
-
-    #contact {
-      background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    #contact::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(12px);
-      z-index: 1;
-    }
-
-    .contact-content {
-      position: relative;
-      z-index: 2;
-      padding: 5rem 2rem;
-    }
-
-    .contact-content h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .contact-links a {
-      margin: 0 15px;
-      color: white;
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact-links a:hover {
-      color: #FFA07A;
-    }
   </style>
 </head>
 <body>
 
-  <div id="soyd-logo">SOYD</div>
+  <!-- SOYD felirat hamburgerrel -->
+  <div id="soyd-logo">
+    SOYD
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
-  <div id="dropdown-menu">
+  <!-- Lenülő menü -->
+  <nav class="dropdown-menu" id="dropdown-menu">
     <a href="#hero">Kezdőlap</a>
     <a href="#about">Rólam</a>
     <a href="#music">Zeneim</a>
     <a href="#contact">Kapcsolat</a>
-  </div>
-
-  <nav>
-    <!-- Üres marad, vagy ha akarod később ide jön a normál menü -->
   </nav>
 
   <section id="hero">
@@ -228,14 +205,12 @@
   </section>
 
   <section id="contact">
-    <div class="contact-content">
-      <h2>Dolgozz velem!</h2>
-      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
-      <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
-      <div class="contact-links">
-        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-      </div>
+    <h2>Dolgozz velem!</h2>
+    <p>📧 <a href="mailto:soundsofyourdreams@gmail.com" style="color:#FFA07A;">soundsofyourdreams@gmail.com</a></p>
+    <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer" style="color:white;">Instagram</a>
+      <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer" style="color:white;">SoundCloud</a>
     </div>
   </section>
 
@@ -244,10 +219,11 @@
     const dropdownMenu = document.getElementById('dropdown-menu');
 
     soydLogo.addEventListener('click', () => {
+      soydLogo.classList.toggle('active');
       dropdownMenu.classList.toggle('open');
     });
 
-    // Menü kiemelés görgetéskor
+    // Görgetés figyelése menüpont kiemeléséhez
     const sections = document.querySelectorAll("section");
     const navLinks = dropdownMenu.querySelectorAll("a");
 
@@ -270,6 +246,5 @@
       });
     });
   </script>
-
 </body>
 </html>
