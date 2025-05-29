@@ -2,11 +2,11 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Pirata+One&display=swap" rel="stylesheet" />
+  <!-- Betűtípusok -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -22,47 +22,71 @@
       color: white;
     }
 
-    /* Menüsor */
     nav {
-      font-family: 'Pirata One', cursive;
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(15, 32, 39, 0); /* átlátszó */
+      background-color: rgba(15, 32, 39, 0.8);
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 2rem;
       padding: 1rem 0;
       z-index: 10;
-      box-shadow: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-family: 'Orbitron', sans-serif;
     }
 
-    /* SOYD felirat bal felső sarokban */
-    #soyd-logo {
-      position: fixed;
-      top: 10px;
-      left: 20px;
-      font-family: 'Pirata One', cursive;
-      font-size: 1.8rem;
-      color: #ff6f61; /* visszafogott téglavörös */
-      user-select: none;
-      z-index: 15;
-    }
-
-    nav a {
+    nav a, nav button {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease, border-bottom 0.3s ease;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      padding-bottom: 2px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.2rem 0.5rem;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 15;
     }
 
-    nav a:hover,
     nav a.active {
-      color: #ff6f61; /* téglavörös kiemelés */
-      border-bottom: 2px solid #ff6f61;
+      color: #e25822; /* téglavörös kiemelés */
+    }
+
+    nav a:hover, nav button:hover {
+      color: #e25822; /* hover szín */
+    }
+
+    /* Dropdown menü */
+    #dropdownMenu {
+      display: none;
+      position: absolute;
+      background: #203a43;
+      padding: 10px 15px;
+      border-radius: 5px;
+      top: 3.5rem;
+      left: 1rem;
+      z-index: 20;
+      min-width: 120px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #dropdownMenu a {
+      display: block;
+      color: white;
+      margin: 5px 0;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    #dropdownMenu a:hover {
+      background-color: #e25822;
+      color: white;
     }
 
     section {
@@ -71,103 +95,24 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
-      flex-direction: column;
       text-align: center;
     }
 
-    #hero h1 {
-      font-family: 'Pirata One', cursive;
-      font-size: 4rem;
-      color: #ff6f61;
-      text-shadow:
-        0 0 8px rgba(255,111,97,0.8),
-        0 0 20px rgba(255,111,97,0.6);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 2s ease-out forwards;
-      margin-top: 3rem;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-      font-size: 2em;
-      color: #ff6f61;
-      font-family: 'Pirata One', cursive;
-    }
-
-    p {
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1rem;
-    }
-
-    /* Kapcsolat szekció */
-    #contact {
-      background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      color: #e0e0e0;
-    }
-
-    #contact::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(12px);
-      z-index: 1;
-    }
-
-    .contact-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 5rem 2rem;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .contact-content h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #ff6f61;
-      font-family: 'Pirata One', cursive;
-    }
-
-    .contact-links a {
-      margin: 0 15px;
-      color: #ff6f61;
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: color 0.3s;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .contact-links a:hover {
-      color: #ffffff;
-    }
+    /* Egyéb stílusokat tartsd meg az eredeti kódodból */
   </style>
 </head>
 <body>
 
-  <div id="soyd-logo">SOYD</div>
-
   <nav>
-    <a href="#hero" class="active">Kezdőlap</a>
+    <button id="soydBtn" aria-haspopup="true" aria-expanded="false">SOYD ▼</button>
+    <div id="dropdownMenu" aria-label="Navigációs menü">
+      <a href="#hero">Kezdőlap</a>
+      <a href="#about">Rólam</a>
+      <a href="#music">Zeneim</a>
+      <a href="#contact">Kapcsolat</a>
+    </div>
+
+    <a href="#hero">Kezdőlap</a>
     <a href="#about">Rólam</a>
     <a href="#music">Zeneim</a>
     <a href="#contact">Kapcsolat</a>
@@ -178,28 +123,51 @@
   </section>
 
   <section id="about">
-    <h2>Rólam</h2>
-    <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
+    <div>
+      <h2>Rólam</h2>
+      <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
+    </div>
   </section>
 
   <section id="music">
-    <h2>Zeneim</h2>
-    <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
+    <div>
+      <h2>Zeneim</h2>
+      <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
+    </div>
   </section>
 
   <section id="contact">
-    <div class="contact-content">
+    <div>
       <h2>Dolgozz velem!</h2>
-      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
+      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com" style="color: #e25822; text-decoration:none;">soundsofyourdreams@gmail.com</a></p>
       <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
-      <div class="contact-links">
-        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank">Instagram</a>
-        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank">SoundCloud</a>
+      <div>
+        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" style="color:white; text-decoration:none; margin-right:1rem;">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" style="color:white; text-decoration:none;">SoundCloud</a>
       </div>
     </div>
   </section>
 
   <script>
+    // Legördülő menü működése
+    const soydBtn = document.getElementById("soydBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    soydBtn.addEventListener("click", () => {
+      const expanded = soydBtn.getAttribute("aria-expanded") === "true" || false;
+      soydBtn.setAttribute("aria-expanded", !expanded);
+      dropdownMenu.style.display = expanded ? "none" : "block";
+    });
+
+    // Kattintás máshova bezárja a menüt
+    window.addEventListener("click", (e) => {
+      if (!soydBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+        soydBtn.setAttribute("aria-expanded", false);
+      }
+    });
+
+    // ScrollSpy menüpont kiemelés színnel (aláhúzás nélkül)
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
 
@@ -222,6 +190,5 @@
       });
     });
   </script>
-
 </body>
 </html>
