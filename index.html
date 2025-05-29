@@ -300,45 +300,38 @@
 <div id="cursor"></div>
 
 <style>
- /* Eltünteti az alap egérkurzort az egész oldalon */
-body, nav, #soyd-logo {
-  cursor: none !important;
-}
+  /* Elrejtjük a normál kurzort */
+  body {
+    cursor: none;
+  }
 
-/* Egyedi kurzor pötty */
-.cursor-dot {
-  position: fixed;
+  /* SOYD felirat kurzorának elrejtése */
+  #soyd-logo {
+    cursor: none;
+  }
+
+  #cursor {
+    position: fixed;
     top: 0;
     left: 0;
     width: 12px;
     height: 12px;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF; /* alap fehér */
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px 3px rgba(183, 65, 14, 0.6);
-    transition: top 0.1s ease-out, left 0.1s ease-out;
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.6); /* fehér fény */
+    transition: top 0.1s ease-out, left 0.1s ease-out, background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 10000;
   }
 
-/* Kattintás animáció a kurzor pöttyön */
-.cursor-dot.active {
-  transform: translate(-50%, -50%) scale(0.7);
-  background-color: #B7410E; /* téglavörös */
-}
-
+  /* kattintási animáció */
+  #cursor.click {
+    background-color: #B7410E; /* téglavörös */
+    box-shadow: 0 0 12px 6px rgba(183, 65, 14, 0.8);
+    transition: none;
+  }
 </style>
-
-<script>
-  const cursor = document.getElementById('cursor');
-
-  window.addEventListener('mousemove', e => {
-    cursor.style.top = e.clientY + 'px';
-    cursor.style.left = e.clientX + 'px';
-  });
-</script>
-  <!-- Egyedi kurzor pötty -->
-<div class="cursor-dot"></div>
 
 <script>
   const cursor = document.getElementById('cursor');
@@ -349,11 +342,11 @@ body, nav, #soyd-logo {
   });
 
   window.addEventListener('mousedown', () => {
-    cursorDot.classList.add('active');
+    cursor.classList.add('click');
   });
 
   window.addEventListener('mouseup', () => {
-    cursorDot.classList.remove('active');
+    cursor.classList.remove('click');
   });
 </script>
 
