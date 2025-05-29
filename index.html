@@ -114,17 +114,22 @@
     }
 
     #hero h1 {
-      font-family: 'Monoton', cursive;
-      font-size: 4rem;
-      color: #B7410E;
-      text-shadow:
-        0 0 8px #B7410E,
-        0 0 15px #B7410E;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 2s ease-out forwards;
-      text-align: center;
-    }
+  font-family: 'Monoton', cursive;
+  font-size: 4rem;
+  color: #FF6EC7; /* egy erősebb pink/lila neon szín */
+  text-shadow:
+    0 0 10px #FF6EC7,
+    0 0 20px #FF6EC7,
+    0 0 30px #FF6EC7,
+    0 0 40px #FF6EC7;
+  background: rgba(0, 0, 0, 0.4); /* halvány sötét háttércsík */
+  padding: 0 1rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s ease-out forwards;
+  text-align: center;
+}
 
     @keyframes fadeInUp {
       to {
