@@ -64,14 +64,42 @@
       font-size: 3em;
       opacity: 0;
       transform: translateY(30px);
-      animation: fadeInUp 2s ease-out forwards;
+      animation: fadeInUpGlow 3s ease forwards;
       margin-bottom: 1rem;
+      color: #00ffe0;
+      text-shadow:
+        0 0 5px #00ffe0,
+        0 0 10px #00ffe0,
+        0 0 20px #00ffe0,
+        0 0 40px #00ffe0;
     }
 
-    @keyframes fadeInUp {
-      to {
+    @keyframes fadeInUpGlow {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+        text-shadow: none;
+        color: #00ffe0;
+      }
+      50% {
         opacity: 1;
         transform: translateY(0);
+        text-shadow:
+          0 0 5px #00ffe0,
+          0 0 10px #00ffe0,
+          0 0 20px #00ffe0,
+          0 0 40px #00ffe0,
+          0 0 60px #00ffe0;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        text-shadow:
+          0 0 10px #00ffe0,
+          0 0 20px #00ffe0,
+          0 0 30px #00ffe0,
+          0 0 60px #00ffe0,
+          0 0 80px #00ffe0;
       }
     }
 
@@ -144,7 +172,7 @@
   <nav>
     <a href="#hero">Kezdőlap</a>
     <a href="#about">Rólam</a>
-    <a href="#music">Zeneim</a>
+    <a href="#music">Zenéim</a>
     <a href="#contact">Kapcsolat</a>
   </nav>
 
