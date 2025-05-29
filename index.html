@@ -168,6 +168,54 @@
         transform: translateY(0);
       }
     }
+
+    /* Kapcsolat szekció az eredeti stílusod */
+    #contact {
+      background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 2rem;
+    }
+
+    .contact-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .contact-links a {
+      margin: 0 15px;
+      color: white;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: #FFA07A;
+    }
+
   </style>
 </head>
 <body>
@@ -205,12 +253,14 @@
   </section>
 
   <section id="contact">
-    <h2>Dolgozz velem!</h2>
-    <p>📧 <a href="mailto:soundsofyourdreams@gmail.com" style="color:#FFA07A;">soundsofyourdreams@gmail.com</a></p>
-    <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
-    <div class="contact-links">
-      <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer" style="color:white;">Instagram</a>
-      <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer" style="color:white;">SoundCloud</a>
+    <div class="contact-content">
+      <h2>Dolgozz velem!</h2>
+      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
+      <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
+      <div class="contact-links">
+        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      </div>
     </div>
   </section>
 
