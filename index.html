@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Betűtípusok -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron&family=Pacifico&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -17,76 +16,53 @@
     }
 
     body {
-      font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
     }
 
+    /* Áttetsző menüsor háttér */
     nav {
+      font-family: 'Pacifico', cursive;
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(15, 32, 39, 0.8);
+      background-color: rgba(15, 32, 39, 0.3); /* áttetsző */
       display: flex;
       justify-content: center;
-      align-items: center;
       gap: 2rem;
       padding: 1rem 0;
       z-index: 10;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      font-family: 'Orbitron', sans-serif;
     }
 
-    nav a, nav button {
+    nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 0.2rem 0.5rem;
+      font-size: 1.3rem;
       transition: color 0.3s ease;
-      position: relative;
-      z-index: 15;
     }
 
-    nav a.active {
-      color: #e25822; /* téglavörös kiemelés */
+    nav a:hover {
+      color: #FFA07A;
     }
 
-    nav a:hover, nav button:hover {
-      color: #e25822; /* hover szín */
-    }
-
-    /* Dropdown menü */
-    #dropdownMenu {
-      display: none;
-      position: absolute;
-      background: #203a43;
-      padding: 10px 15px;
-      border-radius: 5px;
-      top: 3.5rem;
-      left: 1rem;
+    #soyd-logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-family: 'Monoton', cursive;
+      font-size: 2rem;
+      color: #FF3CAC;
+      text-shadow:
+        0 0 10px #FF3CAC,
+        0 0 20px #FF3CAC,
+        0 0 30px #FF3CAC;
       z-index: 20;
-      min-width: 120px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    #dropdownMenu a {
-      display: block;
-      color: white;
-      margin: 5px 0;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      transition: background-color 0.3s ease;
-    }
-
-    #dropdownMenu a:hover {
-      background-color: #e25822;
-      color: white;
+      cursor: default;
+      user-select: none;
     }
 
     section {
@@ -95,23 +71,96 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
+      flex-direction: column;
       text-align: center;
     }
 
-    /* Egyéb stílusokat tartsd meg az eredeti kódodból */
+    #hero h1 {
+      font-family: 'Monoton', cursive;
+      font-size: 4rem;
+      color: #B7410E;
+      text-shadow:
+        0 0 8px #B7410E,
+        0 0 15px #B7410E;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 2s ease-out forwards;
+      text-align: center;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      color: white;
+      font-weight: 500;
+    }
+
+    #contact {
+      background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 2rem;
+    }
+
+    .contact-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .contact-links a {
+      margin: 0 15px;
+      color: white;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: #FFA07A;
+    }
+
   </style>
 </head>
 <body>
 
-  <nav>
-    <button id="soydBtn" aria-haspopup="true" aria-expanded="false">SOYD ▼</button>
-    <div id="dropdownMenu" aria-label="Navigációs menü">
-      <a href="#hero">Kezdőlap</a>
-      <a href="#about">Rólam</a>
-      <a href="#music">Zeneim</a>
-      <a href="#contact">Kapcsolat</a>
-    </div>
+  <div id="soyd-logo">SOYD</div>
 
+  <nav>
     <a href="#hero">Kezdőlap</a>
     <a href="#about">Rólam</a>
     <a href="#music">Zeneim</a>
@@ -123,72 +172,26 @@
   </section>
 
   <section id="about">
-    <div>
-      <h2>Rólam</h2>
-      <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
-    </div>
+    <h2>Rólam</h2>
+    <p>Hangtechnikus vagyok, szenvedélyesen foglalkozom a hangzás világával. Az oldalam célja, hogy megosszam veled a saját zenei világomat.</p>
   </section>
 
   <section id="music">
-    <div>
-      <h2>Zeneim</h2>
-      <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
-    </div>
+    <h2>Zeneim</h2>
+    <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
   </section>
 
   <section id="contact">
-    <div>
+    <div class="contact-content">
       <h2>Dolgozz velem!</h2>
-      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com" style="color: #e25822; text-decoration:none;">soundsofyourdreams@gmail.com</a></p>
+      <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
       <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
-      <div>
-        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" style="color:white; text-decoration:none; margin-right:1rem;">Instagram</a>
-        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" style="color:white; text-decoration:none;">SoundCloud</a>
+      <div class="contact-links">
+        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
       </div>
     </div>
   </section>
 
-  <script>
-    // Legördülő menü működése
-    const soydBtn = document.getElementById("soydBtn");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    soydBtn.addEventListener("click", () => {
-      const expanded = soydBtn.getAttribute("aria-expanded") === "true" || false;
-      soydBtn.setAttribute("aria-expanded", !expanded);
-      dropdownMenu.style.display = expanded ? "none" : "block";
-    });
-
-    // Kattintás máshova bezárja a menüt
-    window.addEventListener("click", (e) => {
-      if (!soydBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.style.display = "none";
-        soydBtn.setAttribute("aria-expanded", false);
-      }
-    });
-
-    // ScrollSpy menüpont kiemelés színnel (aláhúzás nélkül)
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
 </body>
 </html>
