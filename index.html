@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Betűtípusok -->
-  <link href="https://fonts.googleapis.com/css2?family=Notable&family=Chicle&display=swap" rel="stylesheet" />
-
+  <!-- Betűtípusok Google Fonts helyett saját .ttf fájlokból -->
   <style>
+    @font-face {
+      font-family: 'Dandelion';
+      src: url('fonts/DandelionsBloom.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'GlowBloom';
+      src: url('fonts/GlowBloom.ttf') format('truetype');
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -23,7 +31,7 @@
     }
 
     nav {
-      font-family: 'Chicle', cursive;
+      font-family: 'GlowBloom', sans-serif;
       position: fixed;
       top: 0;
       width: 100%;
@@ -56,7 +64,7 @@
     }
 
     #hero h1 {
-      font-family: 'Notable', sans-serif;
+      font-family: 'Dandelion', cursive;
       font-size: 3em;
       opacity: 0;
       transform: translateY(30px);
