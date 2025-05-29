@@ -325,28 +325,29 @@
     z-index: 10000;
   }
 
-  /* Kattintás animáció */
-.cursor-dot.active {
-  transform: translate(-50%, -50%) scale(0.7);
+  /* kattintási animáció */
+  #cursor.click {
   background-color: #B7410E; /* téglavörös */
+  box-shadow: 0 0 20px 10px rgba(183, 65, 14, 0.8);
+  transition: box-shadow 0.6s ease, background-color 0.6s ease;
 }
 </style>
 
 <script>
-  const cursorDot = document.querySelector('.cursor-dot');
+  const cursor = document.getElementById('cursor');
 
-window.addEventListener('mousemove', e => {
-  cursorDot.style.top = e.clientY + 'px';
-  cursorDot.style.left = e.clientX + 'px';
-});
+  window.addEventListener('mousemove', e => {
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+  });
 
-window.addEventListener('mousedown', () => {
-  cursorDot.classList.add('active');
-});
+  window.addEventListener('mousedown', () => {
+    cursor.classList.add('click');
+  });
 
-window.addEventListener('mouseup', () => {
-  cursorDot.classList.remove('active');
-});
+  window.addEventListener('mouseup', () => {
+    cursor.classList.remove('click');
+  });
 </script>
 
 </body>
