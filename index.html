@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sounds of Your Dreams</title>
+  <!-- Google Fonts Montserrat betűtípus betöltése -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -91,8 +93,12 @@
       background-attachment: fixed;
       position: relative;
       overflow: hidden;
-      color: white;
       min-height: 100vh;
+
+      /* Modern vastag betűtípus és szín */
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #e0e0e0;
     }
 
     #contact::before {
@@ -112,14 +118,17 @@
     }
 
     .contact-content h2 {
+      font-weight: 900;
       font-size: 3rem;
       margin-bottom: 1rem;
+      color: #f1c40f; /* aranysárga */
     }
 
     .contact-links a {
       margin: 0 15px;
-      color: #00ffe0;
-      font-weight: bold;
+      color: #f1c40f; /* aranysárga */
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.2rem;
       text-decoration: none;
       transition: color 0.3s;
