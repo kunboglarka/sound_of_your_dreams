@@ -5,16 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Betűtípusok Google Fonts helyett saját .ttf fájlokból -->
   <style>
+    /* Betűtípusok több formátumban, saját fájlokból */
     @font-face {
       font-family: 'Dandelion';
-      src: url('fonts/DandelionsBloom.ttf') format('truetype');
+      src: url('fonts/DandelionsBloom.woff2') format('woff2'),
+           url('fonts/DandelionsBloom.woff') format('woff'),
+           url('fonts/DandelionsBloom.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
 
     @font-face {
       font-family: 'GlowBloom';
-      src: url('fonts/GlowBloom.ttf') format('truetype');
+      src: url('fonts/GlowBloom.woff2') format('woff2'),
+           url('fonts/GlowBloom.woff') format('woff'),
+           url('fonts/GlowBloom.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
 
     * {
