@@ -61,16 +61,17 @@
 
     #hero h1 {
       font-family: 'Pacifico', cursive;
-      font-size: 3em;
+      font-size: 3.5em; /* kicsit nagyobb */
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUpGlow 3s ease forwards;
       margin-bottom: 1rem;
-      color: #b7410e;
+      color: #d35400; /* világosabb téglavörös */
       text-shadow:
-        0 0 3px #b7410e,
-        0 0 6px #b7410e,
-        0 0 10px #b7410e;
+        2px 2px 6px rgba(0, 0, 0, 0.7), /* sötét árnyék a jobb olvashatóságért */
+        0 0 3px #d35400,
+        0 0 6px #d35400,
+        0 0 10px #d35400;
     }
 
     @keyframes fadeInUpGlow {
@@ -78,25 +79,27 @@
         opacity: 0;
         transform: translateY(30px);
         text-shadow: none;
-        color: #b7410e;
+        color: #d35400;
       }
       50% {
         opacity: 1;
         transform: translateY(0);
         text-shadow:
-          0 0 3px #b7410e,
-          0 0 6px #b7410e,
-          0 0 10px #b7410e,
-          0 0 15px #b7410e;
+          2px 2px 6px rgba(0, 0, 0, 0.7),
+          0 0 3px #d35400,
+          0 0 6px #d35400,
+          0 0 10px #d35400,
+          0 0 15px #d35400;
       }
       100% {
         opacity: 1;
         transform: translateY(0);
         text-shadow:
-          0 0 5px #b7410e,
-          0 0 8px #b7410e,
-          0 0 12px #b7410e,
-          0 0 18px #b7410e;
+          2px 2px 6px rgba(0, 0, 0, 0.7),
+          0 0 5px #d35400,
+          0 0 8px #d35400,
+          0 0 12px #d35400,
+          0 0 18px #d35400;
       }
     }
 
@@ -183,7 +186,7 @@
   </section>
 
   <section id="music">
-    <h2>Zenéim</h2>
+    <h2>Zeneim</h2>
     <p>Itt majd beágyazok zenéket Soundcloudról vagy YouTube-ról.</p>
   </section>
 
