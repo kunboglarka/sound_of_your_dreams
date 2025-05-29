@@ -2,13 +2,14 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Google Fonts betűtípusok -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet" />
+  <!-- Betűtípusok Google Fonts-ról -->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron&family=Pacifico&display=swap" rel="stylesheet" />
 
   <style>
+    /* Alap reset */
     * {
       margin: 0;
       padding: 0;
@@ -17,13 +18,14 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      font-family: 'Orbitron', sans-serif; /* Alap betűtípus minden szövegnek kivéve cím és menü */
+      min-height: 100vh;
     }
 
     nav {
-      font-family: 'Satisfy', cursive;
+      font-family: 'Pacifico', cursive; /* Menü betűtípus */
       position: fixed;
       top: 0;
       width: 100%;
@@ -37,16 +39,23 @@
     }
 
     nav a {
-      font-family: 'Montserrat', sans-serif;
-      color: white;
+      color: #FF784B; /* neon narancs */
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.3rem;
       transition: color 0.3s ease;
-      font-size: 1.1rem;
+      text-shadow:
+        0 0 5px #FF784B,
+        0 0 10px #FF784B,
+        0 0 20px #FF784B;
     }
 
     nav a:hover {
-      color: #b7410e;
+      color: #FFA07A;
+      text-shadow:
+        0 0 10px #FFA07A,
+        0 0 20px #FFA07A,
+        0 0 30px #FFA07A;
     }
 
     section {
@@ -60,63 +69,45 @@
     }
 
     #hero h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3.5em; /* kicsit nagyobb */
+      font-family: 'Monoton', cursive; /* Cím betűtípus */
+      font-size: 4rem;
+      color: #FF3CAC; /* pink neon */
+      text-shadow:
+        0 0 10px #FF3CAC,
+        0 0 20px #FF3CAC,
+        0 0 30px #FF3CAC,
+        0 0 40px #FF3CAC;
       opacity: 0;
       transform: translateY(30px);
-      animation: fadeInUpGlow 3s ease forwards;
-      margin-bottom: 1rem;
-      color: #d35400; /* világosabb téglavörös */
-      text-shadow:
-        2px 2px 6px rgba(0, 0, 0, 0.7), /* sötét árnyék a jobb olvashatóságért */
-        0 0 3px #d35400,
-        0 0 6px #d35400,
-        0 0 10px #d35400;
+      animation: fadeInUp 2s ease-out forwards;
+      margin-bottom: 2rem;
     }
 
-    @keyframes fadeInUpGlow {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-        text-shadow: none;
-        color: #d35400;
-      }
-      50% {
+    @keyframes fadeInUp {
+      to {
         opacity: 1;
         transform: translateY(0);
-        text-shadow:
-          2px 2px 6px rgba(0, 0, 0, 0.7),
-          0 0 3px #d35400,
-          0 0 6px #d35400,
-          0 0 10px #d35400,
-          0 0 15px #d35400;
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        text-shadow:
-          2px 2px 6px rgba(0, 0, 0, 0.7),
-          0 0 5px #d35400,
-          0 0 8px #d35400,
-          0 0 12px #d35400,
-          0 0 18px #d35400;
       }
     }
 
     h2 {
+      font-size: 2.5rem;
+      color: #18FFFF; /* türkiz neon */
       margin-bottom: 1rem;
-      font-size: 2em;
-      color: #00ffe0;
+      text-shadow:
+        0 0 5px #18FFFF,
+        0 0 10px #18FFFF,
+        0 0 20px #18FFFF;
     }
 
     p {
       max-width: 600px;
-      margin: 0 auto;
       line-height: 1.6;
-      font-family: 'Montserrat', sans-serif;
+      color: #CCCCCC;
+      font-weight: 500;
     }
 
-    /* Kapcsolat szekció (marad alap betűtípus) */
+    /* Kapcsolat szekció */
     #contact {
       background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
       background-position: center;
@@ -127,7 +118,7 @@
       overflow: hidden;
       min-height: 100vh;
       color: #e0e0e0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Orbitron', sans-serif;
     }
 
     #contact::before {
@@ -142,29 +133,37 @@
     .contact-content {
       position: relative;
       z-index: 2;
-      text-align: center;
       padding: 5rem 2rem;
     }
 
     .contact-content h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #f1c40f;
-      font-family: 'Pacifico', cursive;
+      color: #FF784B; /* neon narancs */
+      text-shadow:
+        0 0 5px #FF784B,
+        0 0 10px #FF784B,
+        0 0 20px #FF784B;
     }
 
     .contact-links a {
       margin: 0 15px;
-      color: #f1c40f;
+      color: #FF784B;
       font-size: 1.4rem;
       text-decoration: none;
-      transition: color 0.3s;
-      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+      text-shadow:
+        0 0 5px #FF784B,
+        0 0 10px #FF784B;
     }
 
     .contact-links a:hover {
-      color: #ffffff;
+      color: #FFA07A;
+      text-shadow:
+        0 0 10px #FFA07A,
+        0 0 20px #FFA07A;
     }
+
   </style>
 </head>
 <body>
