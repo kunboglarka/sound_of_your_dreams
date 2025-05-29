@@ -2,129 +2,133 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sounds of Your Dreams</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-  }
-
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(15, 32, 39, 0.9);
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem 0;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-
-  nav a:hover {
-    color: #00ffe0;
-  }
-
-  section {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-  }
-
-  #hero h1 {
-    font-size: 3em;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 2s ease-out forwards;
-    text-align: center;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-  }
 
-  #about, #music, #contact {
-    flex-direction: column;
-    text-align: center;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 2em;
-    color: #00ffe0;
-  }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(15, 32, 39, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
 
-  p {
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-  #contact {
-    background: url('https://github.com/kunboglarka/sound_of_your_dreams/blob/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png?raw=true') center/cover no-repeat fixed;
-    position: relative;
-    overflow: hidden;
-    color: white;
-    min-height: 100vh;
-  }
+    nav a:hover {
+      color: #00ffe0;
+    }
 
-  #contact::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* sötét overlay */
-    backdrop-filter: blur(12px);
-    z-index: 1;
-  }
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
 
-  .contact-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 5rem 2rem;
-  }
+    #hero h1 {
+      font-size: 3em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 2s ease-out forwards;
+      text-align: center;
+    }
 
-  .contact-content h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .contact-links a {
-    margin: 0 15px;
-    color: #00ffe0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
+    #about, #music, #contact {
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .contact-links a:hover {
-    color: #ffffff;
-  }
-</style>
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2em;
+      color: #00ffe0;
+    }
 
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Kapcsolat szekció stílusa */
+    #contact {
+      background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      min-height: 100vh;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .contact-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-links a {
+      margin: 0 15px;
+      color: #00ffe0;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
 
@@ -153,18 +157,17 @@
     </div>
   </section>
 
- <section id="contact">
-  <div class="contact-content">
-    <h2>Dolgozz velem!</h2>
-    <p>📧 <a href="mailto:boglarka@example.com">boglarka@example.com</a></p>
-    <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
-    <div class="contact-links">
-      <a href="https://instagram.com/tefelhasznaloneved" target="_blank">Instagram</a>
-      <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank">SoundCloud</a>
+  <section id="contact">
+    <div class="contact-content">
+      <h2>Dolgozz velem!</h2>
+      <p>📧 <a href="mailto:boglarka@example.com">boglarka@example.com</a></p>
+      <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
+      <div class="contact-links">
+        <a href="https://instagram.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
 </body>
 </html>
