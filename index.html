@@ -82,6 +82,48 @@
       line-height: 1.6;
     }
   </style>
+  #contact {
+  background: url('https://github.com/kunboglarka/sound_of_your_dreams/blob/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png?raw=true') center/cover no-repeat fixed;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  min-height: 100vh;
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* sötétebb overlay */
+  backdrop-filter: blur(12px); /* erős elmosás */
+  z-index: 1;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.contact-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.contact-links a {
+  margin: 0 15px;
+  color: #00ffe0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-links a:hover {
+  color: #ffffff;
+}
+
 </head>
 <body>
 
@@ -110,12 +152,18 @@
     </div>
   </section>
 
-  <section id="contact">
-    <div>
-      <h2>Kapcsolat</h2>
-      <p>Írj nekem: boglarka@example.com<br>Vagy kövess Instagramon!</p>
+ <section id="contact">
+  <div class="contact-content">
+    <h2>Dolgozz velem!</h2>
+    <p>📧 <a href="mailto:boglarka@example.com">boglarka@example.com</a></p>
+    <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/tefelhasznaloneved" target="_blank">Instagram</a>
+      <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank">SoundCloud</a>
     </div>
-  </section>
+  </div>
+</section>
+
 
 </body>
 </html>
