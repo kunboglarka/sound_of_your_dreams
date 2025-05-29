@@ -308,18 +308,18 @@ body, nav, #soyd-logo {
 /* Egyedi kurzor pötty */
 .cursor-dot {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  background-color: white;
-  border-radius: 50%;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #B7410E; /* téglavörös */
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px 3px rgba(183, 65, 14, 0.6);
+    transition: top 0.1s ease-out, left 0.1s ease-out;
+    z-index: 10000;
+  }
 
 /* Kattintás animáció a kurzor pöttyön */
 .cursor-dot.active {
@@ -341,11 +341,11 @@ body, nav, #soyd-logo {
 <div class="cursor-dot"></div>
 
 <script>
-  const cursorDot = document.querySelector('.cursor-dot');
+  const cursor = document.getElementById('cursor');
 
   window.addEventListener('mousemove', e => {
-    cursorDot.style.top = e.clientY + 'px';
-    cursorDot.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
   });
 
   window.addEventListener('mousedown', () => {
