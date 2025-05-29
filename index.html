@@ -2,14 +2,13 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sounds of Your Dreams</title>
 
-  <!-- Betűtípusok Google Fonts-ról -->
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron&family=Pacifico&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Pirata+One&display=swap" rel="stylesheet" />
 
   <style>
-    /* Alap reset */
     * {
       margin: 0;
       padding: 0;
@@ -18,53 +17,52 @@
     }
 
     body {
+      font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      font-family: 'Orbitron', sans-serif; /* Alap betűtípus minden szövegnek kivéve cím és menü */
-      min-height: 100vh;
     }
 
+    /* Menüsor */
     nav {
-  font-family: 'Pacifico', cursive;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  z-index: 10;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-    nav a {
-      color: white; /* Menü fehér */
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
+      font-family: 'Pirata One', cursive;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(15, 32, 39, 0); /* átlátszó */
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 10;
+      box-shadow: none;
     }
 
-    nav a:hover {
-      color: #FFA07A; /* világosabb narancs hover */
-    }
-
-    /* SOYD felirat a bal felső sarokban */
+    /* SOYD felirat bal felső sarokban */
     #soyd-logo {
       position: fixed;
       top: 10px;
-      left: 10px;
-      font-family: 'Monoton', cursive;
-      font-size: 2rem;
-      color: #FF3CAC; /* pink neon */
-      text-shadow:
-        0 0 10px #FF3CAC,
-        0 0 20px #FF3CAC,
-        0 0 30px #FF3CAC;
-      z-index: 20; /* hogy a menü fölött legyen */
-      cursor: default;
+      left: 20px;
+      font-family: 'Pirata One', cursive;
+      font-size: 1.8rem;
+      color: #ff6f61; /* visszafogott téglavörös */
       user-select: none;
+      z-index: 15;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      padding-bottom: 2px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff6f61; /* téglavörös kiemelés */
+      border-bottom: 2px solid #ff6f61;
     }
 
     section {
@@ -77,18 +75,17 @@
       text-align: center;
     }
 
-    /* A cím (Sounds of Your Dreams) stílusa - téglavörös glow, nem túl fényes */
     #hero h1 {
-      font-family: 'Monoton', cursive;
+      font-family: 'Pirata One', cursive;
       font-size: 4rem;
-      color: #B7410E; /* téglavörös */
+      color: #ff6f61;
       text-shadow:
-        0 0 8px #B7410E,
-        0 0 15px #B7410E;
+        0 0 8px rgba(255,111,97,0.8),
+        0 0 20px rgba(255,111,97,0.6);
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 2s ease-out forwards;
-      text-align: center;
+      margin-top: 3rem;
     }
 
     @keyframes fadeInUp {
@@ -99,16 +96,19 @@
     }
 
     h2 {
-      font-size: 2.5rem;
-      color: white;
       margin-bottom: 1rem;
+      font-size: 2em;
+      color: #ff6f61;
+      font-family: 'Pirata One', cursive;
     }
 
     p {
       max-width: 600px;
+      margin: 0 auto;
       line-height: 1.6;
       color: white;
-      font-weight: 500;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
     }
 
     /* Kapcsolat szekció */
@@ -121,8 +121,7 @@
       position: relative;
       overflow: hidden;
       min-height: 100vh;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
+      color: #e0e0e0;
     }
 
     #contact::before {
@@ -137,36 +136,38 @@
     .contact-content {
       position: relative;
       z-index: 2;
+      text-align: center;
       padding: 5rem 2rem;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .contact-content h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: white;
+      color: #ff6f61;
+      font-family: 'Pirata One', cursive;
     }
 
     .contact-links a {
       margin: 0 15px;
-      color: white;
+      color: #ff6f61;
       font-size: 1.4rem;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .contact-links a:hover {
-      color: #FFA07A;
+      color: #ffffff;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- SOYD logó -->
   <div id="soyd-logo">SOYD</div>
 
   <nav>
-    <a href="#hero">Kezdőlap</a>
+    <a href="#hero" class="active">Kezdőlap</a>
     <a href="#about">Rólam</a>
     <a href="#music">Zeneim</a>
     <a href="#contact">Kapcsolat</a>
@@ -192,11 +193,35 @@
       <p>📧 <a href="mailto:soundsofyourdreams@gmail.com">soundsofyourdreams@gmail.com</a></p>
       <p style="margin-top: 1rem;">🔗 Kövess itt:</p>
       <div class="contact-links">
-        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+        <a href="https://www.instagram.com/wrld_of_bonda/" target="_blank">Instagram</a>
+        <a href="https://soundcloud.com/tefelhasznaloneved" target="_blank">SoundCloud</a>
       </div>
     </div>
   </section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
