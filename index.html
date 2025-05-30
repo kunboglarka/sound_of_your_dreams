@@ -237,6 +237,82 @@
       color: #FFA07A;
     }
 
+    @media (max-width: 768px) {
+  /* Hero cím kisebb mobilon */
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Hero logó képméret kisebb mobilon */
+  .hero-image {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  /* Menü mérete mobilon */
+  .dropdown-menu {
+    width: 85%;
+    left: 7.5%;
+    top: 60px;
+  }
+
+  .dropdown-menu a {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  /* About szekció: abszolút pozíció helyett rugalmas elrendezés */
+  #about {
+    position: relative;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-block {
+    position: static;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  /* Contact szekció betűméretek és margók */
+  .contact-content h2 {
+    font-size: 2rem;
+  }
+
+  .contact-links a {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  /* SOYD logo méret igazítás */
+  #soyd-logo {
+    font-size: 1.6rem;
+    gap: 0.4rem;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 18px;
+  }
+
+  .hamburger span {
+    height: 2px;
+  }
+
+  /* Testreszabott kurzor elrejtése mobilon */
+  #cursor {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
+}
+
   </style>
 </head>
 <body>
