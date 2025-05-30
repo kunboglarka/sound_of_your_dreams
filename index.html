@@ -284,7 +284,7 @@
 .next-card {
     position: relative;
     margin-top: 1rem;
-    z-index: 10;
+    z-index: 1;
     align-self: center;
   }
 
@@ -579,24 +579,37 @@
 </script>
 <script>
   const button = document.querySelector('.next-card');
-  const stack = document.querySelector('.card-stack');
+const stack = document.querySelector('.card-stack');
 
-  button.addEventListener('click', () => {
-    const topCard = stack.querySelector('.stack-card:last-child');
-    if (topCard) {
-      topCard.style.opacity = '0';
-      topCard.style.transform = 'translateX(150%) rotate(10deg)';
-      setTimeout(() => {
-        stack.prepend(topCard);
-        topCard.style.transition = 'none';
-        topCard.style.transform = 'translateY(24px) scale(0.92)';
-        topCard.style.opacity = '1';
-        requestAnimationFrame(() => {
-          topCard.style.transition = '';
-        });
-      }, 600);
-    }
-  });
+button.addEventListener('click', () => {
+  const topCard = stack.querySelector('.stack-card:last-child');
+  if (topCard) {
+    // Először legyen sima átmenet a transform és opacity változásra
+    topCard.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+
+    // Elmozgatás, elforgatás és eltűnés
+    topCard.style.transform = 'translateX(150%) rotate(10deg)';
+    topCard.style.opacity = '0';
+
+    // 600 ms múlva (amikor az animáció lefutott) áthelyezés és visszaállítás
+    setTimeout(() => {
+      stack.prepend(topCard);
+
+      // Eltávolítjuk a transition-t, hogy az azonnali stílusváltozások ne legyenek animáltak
+      topCard.style.transition = 'none';
+
+      // Visszaállítjuk az eredeti pozíciót, de kisebb, alacsonyabb legyen, mint a többi kártya (ha ez a dizájn)
+      topCard.style.transform = 'translateY(24px) scale(0.92)';
+      topCard.style.opacity = '1';
+
+      // Ez biztosítja, hogy a transition visszakapcsolódjon, de az előző módosítás azonnali legyen
+      requestAnimationFrame(() => {
+        topCard.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+      });
+    }, 600);
+  }
+});
+
 </script>
 
 </body>
