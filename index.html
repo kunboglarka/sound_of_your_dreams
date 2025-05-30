@@ -172,6 +172,24 @@
       }
     }
 
+    .hero-image {
+  max-width: 400px;
+  width: 80%;
+  height: auto;
+  margin-bottom: 2rem;
+  animation: fadeInDown 2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
     /* Kapcsolat szekció az eredeti stílusod */
     #contact {
       background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
@@ -242,6 +260,7 @@
   </nav>
 
   <section id="hero">
+    <img src="https://github.com/kunboglarka/sound_of_your_dreams/blob/main/assets/soyd%20logo%202.1%20feh%C3%A9r.png?raw=true" alt="Hero logo" class="hero-image">
     <h1>Sounds of Your Dreams</h1>
   </section>
 
