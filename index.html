@@ -271,69 +271,52 @@
     gap: 1rem;
     overflow: hidden;
   }
-
-   #about-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-.next-card {
-    position: relative;
-    margin-top: 1rem;
-    z-index: 1;
-    align-self: center;
-  }
-
-.card-stack {
+      .stack-cards {
   position: relative;
-  width: 90%;
-  max-width: 400px;
-  height: 250px;
+  width: 300px;
+  height: 180px;
   margin: 0 auto;
   perspective: 1000px;
 }
 
-.stack-card {
+.card {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  color: white;
-  font-family: 'Gloria Hallelujah', cursive;
-  box-shadow: 0 0 12px rgba(255,255,255,0.1);
+  border-radius: 10px;
+  background-color: #eee;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  user-select: none;
   transition: transform 0.6s ease, opacity 0.6s ease;
+  backface-visibility: hidden;
+  cursor: default;
 }
 
-.stack-card:nth-child(1) { z-index: 5; }
-.stack-card:nth-child(2) { z-index: 4; transform: translateY(6px) scale(0.98); }
-.stack-card:nth-child(3) { z-index: 3; transform: translateY(12px) scale(0.96); }
-.stack-card:nth-child(4) { z-index: 2; transform: translateY(18px) scale(0.94); }
-.stack-card:nth-child(5) { z-index: 1; transform: translateY(24px) scale(0.92); }
-
-.next-card {
-  margin-top: 2rem;
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: #B7410E;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.card:not(.active) {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
 }
 
-.next-card:hover {
-  background-color: #91310B;
+.card.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .stack-cards {
+    width: 90vw;
+    height: 160px;
+  }
+  .card {
+    font-size: 1.2rem;
+  }
 }
       
  .about-block {
@@ -411,23 +394,13 @@
 
  <section id="about">
    <h2>Rólam</h2>
-   <div class="card-stack">
-     <div class="stack-card">
-       <p>A zenével való kapcsolatom sok évvel ezelőtt kezdődött – először csak hobbiként zenéltem, de gyorsan világossá vált, hogy ez több ennél.</p>
-     </div>
-     <div class="stack-card">
-       <p>Később egy zenei kiadónál kezdtem dolgozni, ahol a háttérfolyamatokkal, kiadásokkal és technikai részletekkel foglalkoztam.</p>
-     </div>
-     <div class="stack-card">
-       <p>A Szent György Technikumban szereztem hangtechnikus végzettséget, miközben már akkor is színházban dolgoztam hangosként.</p>
-     </div>
-     <div class="stack-card">
-       <p>Az elmúlt két évemet teljes állásban a színházi hangtechnika töltötte ki – itt tanultam meg igazán, mit jelent élő helyzetekben precízen és kreatívan dolgozni.</p>
-     </div>
-     <div class="stack-card">
-       <p>A „Sounds of Your Dreams” ennek az útnak egy újabb lépése: egy hely, ahol ötvözhetem a technikai tudást és a zene iránti szenvedélyt.</p>
-  </div>
-  <button class="next-card">Lapozz</button>
+   <div class="stack-cards">
+     <div class="card active">A zenével való kapcsolatom sok évvel ezelőtt kezdődött – először csak hobbiként zenéltem, de gyorsan világossá vált, hogy ez több ennél.</div>
+     <div class="card">Később egy zenei kiadónál kezdtem dolgozni, ahol a háttérfolyamatokkal, kiadásokkal és technikai részletekkel foglalkoztam.</div>
+     <div class="card">A Szent György Technikumban szereztem hangtechnikus végzettséget, miközben már akkor is színházban dolgoztam hangosként.</div>
+     <div class="card">Az elmúlt két évemet teljes állásban a színházi hangtechnika töltötte ki – itt tanultam meg igazán, mit jelent élő helyzetekben precízen és kreatívan dolgozni.</div>
+     <div class="card">A „Sounds of Your Dreams” ennek az útnak egy újabb lépése: egy hely, ahol ötvözhetem a technikai tudást és a zene iránti szenvedélyt.</div>
+  <button id="next-card">Lapozz</button>
 </section>
   
   <section id="music">
@@ -578,36 +551,18 @@
   });
 </script>
 <script>
-  const button = document.querySelector('.next-card');
-const stack = document.querySelector('.card-stack');
+ const cards = document.querySelectorAll('.stack-cards .card');
+const nextBtn = document.getElementById('next-card');
 
-button.addEventListener('click', () => {
-  const topCard = stack.querySelector('.stack-card:last-child');
-  if (topCard) {
-    // Először legyen sima átmenet a transform és opacity változásra
-    topCard.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+let activeIndex = 0;
 
-    // Elmozgatás, elforgatás és eltűnés
-    topCard.style.transform = 'translateX(150%) rotate(10deg)';
-    topCard.style.opacity = '0';
+nextBtn.addEventListener('click', () => {
+  // Aktív kártya eltűnik, következő jön elő
+  cards[activeIndex].classList.remove('active');
 
-    // 600 ms múlva (amikor az animáció lefutott) áthelyezés és visszaállítás
-    setTimeout(() => {
-      stack.prepend(topCard);
+  activeIndex = (activeIndex + 1) % cards.length;
 
-      // Eltávolítjuk a transition-t, hogy az azonnali stílusváltozások ne legyenek animáltak
-      topCard.style.transition = 'none';
-
-      // Visszaállítjuk az eredeti pozíciót, de kisebb, alacsonyabb legyen, mint a többi kártya (ha ez a dizájn)
-      topCard.style.transform = 'translateY(24px) scale(0.92)';
-      topCard.style.opacity = '1';
-
-      // Ez biztosítja, hogy a transition visszakapcsolódjon, de az előző módosítás azonnali legyen
-      requestAnimationFrame(() => {
-        topCard.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-      });
-    }, 600);
-  }
+  cards[activeIndex].classList.add('active');
 });
 
 </script>
