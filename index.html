@@ -367,11 +367,26 @@
   body {
     cursor: auto;
   }
-}
 
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/refs/heads/main/assets/tactile-noise-light.png('assets/tactile-noise-light.png'); /* ← vagy a pontos elérési út */
+  background-repeat: repeat;
+  opacity: 0.08; /* állítsd finomra */
+  z-index: 1;
+  mix-blend-mode: screen;
+  }
+}
   </style>
 </head>
 <body>
+
+  <div class="grain-overlay"></div>
 
   <!-- SOYD felirat hamburgerrel -->
   <div id="soyd-logo">
