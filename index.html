@@ -400,6 +400,7 @@
      <div class="card">A Szent György Technikumban szereztem hangtechnikus végzettséget, miközben már akkor is színházban dolgoztam hangosként.</div>
      <div class="card">Az elmúlt két évemet teljes állásban a színházi hangtechnika töltötte ki – itt tanultam meg igazán, mit jelent élő helyzetekben precízen és kreatívan dolgozni.</div>
      <div class="card">A „Sounds of Your Dreams” ennek az útnak egy újabb lépése: egy hely, ahol ötvözhetem a technikai tudást és a zene iránti szenvedélyt.</div>
+  </div>
   <button id="next-card">Lapozz</button>
 </section>
   
@@ -449,9 +450,19 @@
         if (link.getAttribute("href") === "#" + current) {
           link.classList.add("active");
         }
-      });
-    });
-  </script>
+          
+      <script>
+  const cards = document.querySelectorAll(".card");
+  const nextBtn = document.getElementById("next-card");
+  let currentCard = 0;
+
+  nextBtn.addEventListener("click", () => {
+    cards[currentCard].classList.remove("active");
+    currentCard = (currentCard + 1) % cards.length;
+    cards[currentCard].classList.add("active");
+  });
+</script>
+
 <!-- A body végére vagy a <body> zárótag elé -->
 <div id="cursor"></div>
 
