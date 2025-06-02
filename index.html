@@ -450,20 +450,12 @@
         if (link.getAttribute("href") === "#" + current) {
           link.classList.add("active");
         }
-          
-      <script>
+       });
+     });
+  
   const cards = document.querySelectorAll(".card");
   const nextBtn = document.getElementById("next-card");
-  let currentCard = 0;
-
-  nextBtn.addEventListener("click", () => {
-    cards[currentCard].classList.remove("active");
-    currentCard = (currentCard + 1) % cards.length;
-    cards[currentCard].classList.add("active");
-
-    <script>
-  const cards = document.querySelectorAll(".card");
-  const nextBtn = document.getElementById("next-card");
+  const stack = document.querySelector(".stack-cards");
   let currentCard = 0;
 
   function showCard(index) {
@@ -483,17 +475,15 @@
   let endX = 0;
   const threshold = 50; // minimális távolság a váltáshoz
 
-  const stack = document.querySelector(".stack-cards");
-
-  stack.addEventListener("touchstart", (e) => {
+   stack.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
 
-  stack.addEventListener("touchend", (e) => {
+   stack.addEventListener("touchend", (e) => {
     endX = e.changedTouches[0].clientX;
     const diff = endX - startX;
 
-    if (Math.abs(diff) > threshold) {
+   if (Math.abs(diff) > threshold) {
       if (diff < 0) {
         // Balra húzás → következő
         currentCard = (currentCard + 1) % cards.length;
