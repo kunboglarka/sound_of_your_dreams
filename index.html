@@ -670,22 +670,6 @@
     cursor.classList.remove('click');
   });
 </script>
-<script>
- const cards = document.querySelectorAll('.stack-cards .card');
-const nextBtn = document.getElementById('next-card');
-
-let activeIndex = 0;
-
-nextBtn.addEventListener('click', () => {
-  // Aktív kártya eltűnik, következő jön elő
-  cards[activeIndex].classList.remove('active');
-
-  activeIndex = (activeIndex + 1) % cards.length;
-
-  cards[activeIndex].classList.add('active');
-});
-
-</script>
 
 </body>
 </html>
