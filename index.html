@@ -521,7 +521,8 @@
   let endX = 0;
   const threshold = 50; // minimális távolság a váltáshoz
 
-   stack.addEventListener("touchstart", (e) => {
+   const stack = document.querySelector('.stack-cards');
+    stack.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
 
