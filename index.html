@@ -722,6 +722,24 @@
   window.addEventListener('mouseup', () => {
     cursor.classList.remove('click');
   });
+
+  const langToggle = document.getElementById('language-toggle');
+  let currentLang = 'hu';
+
+  function updateLanguage(lang) {
+    document.querySelectorAll('.lang').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+  }
+
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'hu' ? 'en' : 'hu';
+    updateLanguage(currentLang);
+    langToggle.textContent = currentLang.toUpperCase() === 'HU' ? 'HU | EN' : 'EN | HU';
+  });
+
+  // Induláskor betölti az alap nyelvet
+  updateLanguage(currentLang);
 </script>
 
 </body>
