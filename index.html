@@ -478,7 +478,10 @@
 </head>
 <body>
 
-  <div id="language-toggle">HU | EN</div>
+  <div id="language-toggle">
+  <img src="https://flagcdn.com/w40/hu.png" alt="Magyar" id="flag-hu" style="height: 24px; cursor: pointer; margin-right: 6px;">
+  <img src="https://flagcdn.com/w40/gb.png" alt="English" id="flag-en" style="height: 24px; cursor: pointer;">
+</div>
 
   <div class="grain-overlay"></div>
 
@@ -735,11 +738,15 @@
     });
   }
 
-  langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'hu' ? 'en' : 'hu';
-    updateLanguage(currentLang);
-    langToggle.textContent = currentLang.toUpperCase() === 'HU' ? 'HU | EN' : 'EN | HU';
-  });
+ document.getElementById("flag-hu").addEventListener("click", () => {
+  currentLang = 'hu';
+  updateLanguage('hu');
+});
+
+document.getElementById("flag-en").addEventListener("click", () => {
+  currentLang = 'en';
+  updateLanguage('en');
+});
 
   // Induláskor betölti az alap nyelvet
   updateLanguage(currentLang);
