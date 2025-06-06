@@ -243,6 +243,21 @@
     font-size: 2.2rem;
   }
 
+  .grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url('https://i.ibb.co/zsXZbfM/subtle-grain-texture.png');
+  background-repeat: repeat;
+  background-size: 300px;
+  opacity: 0.08;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
   #next-card {
     display: none;
   }
@@ -372,6 +387,8 @@
   </style>
 </head>
 <body>
+
+  <div class="grain-overlay"></div>
 
   <!-- SOYD felirat hamburgerrel -->
   <div id="soyd-logo">
