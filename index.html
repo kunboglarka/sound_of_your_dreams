@@ -189,7 +189,35 @@
   }
 }
 
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png');
+  background-repeat: repeat;
+  background-size: cover;
+  opacity: 0.08;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  animation: grainMove 8s steps(10) infinite;
+}
 
+  @keyframes grainMove {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+      
     /* Kapcsolat szekció az eredeti stílusod */
     #contact {
       background-image: url('https://raw.githubusercontent.com/kunboglarka/sound_of_your_dreams/main/assets/K%C3%A9perny%C5%91k%C3%A9p%202024-04-23%20003046.png');
@@ -243,34 +271,6 @@
     font-size: 2.2rem;
   }
 
-  .grain-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png');
-  background-repeat: repeat;
-  background-size: 300px;
-  opacity: 0.08;
-  z-index: 1;
-  mix-blend-mode: screen;
-}
-
-  @keyframes grainMove {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -10%); }
-  20% { transform: translate(-15%, 5%); }
-  30% { transform: translate(7%, -25%); }
-  40% { transform: translate(-5%, 25%); }
-  50% { transform: translate(-15%, 10%); }
-  60% { transform: translate(15%, 0%); }
-  70% { transform: translate(0%, 15%); }
-  80% { transform: translate(3%, 35%); }
-  90% { transform: translate(-10%, 10%); }
-}
-      
   #next-card {
     display: none;
   }
